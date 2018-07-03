@@ -1,0 +1,15 @@
+html
+    head
+        title User - Registration
+    body
+        if message != null
+            div #{message}
+        form(action="/login/register", method="post")
+            
+            label(for="username") User Name:
+            input(type="text", name="username")
+            br
+            label(for="password") Password:
+            input(type="text", name="password")
+            br
+            button(type="submit") Register
