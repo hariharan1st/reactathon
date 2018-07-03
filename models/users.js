@@ -1,4 +1,4 @@
-var db = require("../config/db.js").dbClient;
+var db = require("../config/db.js");
 
 var userSchema = db.Schema({
     username:String,
@@ -6,4 +6,4 @@ var userSchema = db.Schema({
 });
 var Users = db.model("Users", userSchema, "Users")
 
-exports.Users = Users
+module.exports = Users

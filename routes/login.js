@@ -1,6 +1,6 @@
 var express = require("express");
 var loginRouter = express.Router();
-var userModel = require("../models/users").Users;
+var userModel = require("../models/users");
 
 loginRouter.post("/", function(req,res, next){
     var query = {username:req.body.username, password:req.body.password};

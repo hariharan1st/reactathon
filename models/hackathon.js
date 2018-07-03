@@ -1,4 +1,4 @@
-var db = require("../config/db.js").dbClient;
+var db = require("../config/db.js");
 
 var hackathonSchema = db.Schema({
     name:String,
