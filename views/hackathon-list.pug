@@ -1,25 +1,35 @@
-html
-    head
-        title   HACKATHON LIST
-    body
-        div #{message}
-        table(border="1")
-            tr
-                th Name
-                th Summary
-                th Tech Stack Used
-                th Organizer
-                th Min Team Size
-                th Max Team Size
-                th Last Date
-            each val in hackathonList.length ? hackathonList : ['There are no events']
-                tr
-                    td #{val.name}
-                    td #{val.summary}
-                    td #{val.tech_stack}
-                    td #{val.organizer}
-                    td #{val.min_team_size}
-                    td #{val.max_team_size}
-                    td #{val.last_date}   
-        a(href="/hackathon/create")
-            button(name="create") Create new hackathon
+include header.pug
+div
+    div.header(style="padding:60px 5px;")
+        div
+            img(src="/images/title.png", alt="HACKATHON", style="padding-left: 25%;")
+        div(style="float:right")
+            a(href="/hackathon/create")
+                    button.createbutton(name="create") Create new Hackathon
+    div#table-content(style="")
+        div.table100.ver1.m-b-110
+            if message != null
+                div #{message}
+            div.table100-head    
+                table
+                    thead
+                        tr.row100.head
+                            th.cell100.column1 Name
+                            th.cell100.column2 Summary
+                            th.cell100.column3 Tech Stack Used
+                            th.cell100.column4 Organizer
+                            th.cell100.column5 Min Team Size
+                            th.cell100.column6 Max Team Size
+                            th.cell100.column7 Last Date
+            div.table100-body.js-pscroll.ps.ps--active-y 
+                table
+                    tbody
+                        each val in hackathonList.length ? hackathonList : ['There are no events']
+                            tr.row100.body
+                                td.cell100.column1 #{val.name}
+                                td.cell100.column2 #{val.summary}
+                                td.cell100.column3 #{val.tech_stack}
+                                td.cell100.column4 #{val.organizer}
+                                td.cell100.column5 #{val.min_team_size}
+                                td.cell100.column6 #{val.max_team_size}
+                                td.cell100.column7 #{val.last_date} 

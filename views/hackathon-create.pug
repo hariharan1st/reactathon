@@ -1,31 +1,55 @@
-html
-    head
-        title Hackathon - Create
-    body
-        if message != null
-            div #{message}
-        form(action="/hackathon/create", method="post")
-            
-            label(for="name") Name:
-            input(type="text", name="name")
-            br
-            label(for="summary") Summary:
-            input(type="text", name="summary")
-            br
-            label(for="last_date") Last Date:
-            input(type="text", name="last_date")
-            br
-            label(for="tech_stack") Tech Stack:
-            input(type="text", name="tech_stack")
-            br
-            label(for="organizer") Organizer:
-            input(type="text", name="organizer")
-            br
-            label(for="min_team_size") min Team Size:
-            input(type="text", name="min_team_size")
-            br
-            label(for="max_team_size") max Team Size:
-            input(type="text", name="max_team_size")
-            br
-            button(type="submit") Create
-            button(type="reset") Reset
+include header.pug
+if message != null
+    div #{message}
+form(action="/hackathon/create", method="post")
+    div.table100.ver3.m-b-110
+        div.table100-head    
+                table
+                    thead
+                        tr.row100.head
+                            th.cell100.column1 CREATE HACKATHON
+        div.table100-body.js-pscroll.ps.ps--active-y 
+            table
+                tbody
+                    tr.row100.head
+                        td.cell100.column1
+                            label(for="name") Name:
+                        td.cell100.column2
+                            input(type="text", name="name")
+                    tr.row100.head        
+                        td.cell100.column1
+                            label(for="summary") Summary:
+                        td.cell100.column2
+                            textarea(name="summary", cols="30", rows="5")
+                    tr.row100.head
+                        td.cell100.column1
+                            label(for="last_date") Last Date:
+                        td.cell100.column2
+                            input(type="date", name="last_date")
+                    tr.row100.head
+                        td.cell100.column1
+                            label(for="tech_stack") Tech Stack:
+                        td.cell100.column2
+                            input(type="text", name="tech_stack")
+                    tr.row100.head
+                        td.cell100.column1
+                            label(for="organizer") Organizer:
+                        td.cell100.column2
+                            input(type="text", name="organizer")
+                    tr.row100.head
+                        td.cell100.column1
+                            label(for="min_team_size") min Team Size:
+                        td.cell100.column2
+                            input(type="number", name="min_team_size")
+                    tr.row100.head
+                        td.cell100.column1
+                            label(for="max_team_size") max Team Size:
+                        td.cell100.column2
+                            input(type="number", name="max_team_size")
+                    tr.row100.head
+                        td.cell100.column1
+                        td.cell100.column2
+                            button.button(type="submit") Create
+                            button.button(type="reset") Reset
+                                        
+                                        

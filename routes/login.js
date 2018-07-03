@@ -1,13 +1,13 @@
 var express = require("express");
 var loginRouter = express.Router();
 var userModel = require("../models/users");
+var util = require("../util/util.js");
 
 loginRouter.post("/", function(req,res, next){
     var query = {username:req.body.username, password:req.body.password};
     userModel.findOne(query, function(err,result){
         if(err) throw err;
         if(result == null){
-            console.log("login again");
             res.redirect("/");
         }
         else{   
@@ -19,7 +19,7 @@ loginRouter.post("/", function(req,res, next){
 });
 
 loginRouter.get("/register", function(req,res,next){
-    res.render("register.pug", { message:req.session.message });
+    res.render("register.pug", { message: util.popSessionValue(req, "message")});
 });
 
 loginRouter.post("/register", function(req,res,next){

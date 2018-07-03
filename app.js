@@ -5,7 +5,6 @@ var multer = require('multer');
 var upload = multer();
 var app = express();
 var session = require("express-session");
-
 var util = require("./util/util.js");
 var loginRouter = require("./routes/login.js");
 var hackathonRouter = require("./routes/hackathon.js");
@@ -14,6 +13,9 @@ app.set('view engine', 'pug');
 app.set('views','./views');
 
 var reqCount = 0;
+
+app.use(express.static('static'));
+
 app.use(function(req,res,next){
     reqCount++;
     req.param.reqid = reqCount;
@@ -43,7 +45,7 @@ app.get("/", function(req,res, next){
 
 app.use(function(err,req,res,next){
     res.render("index.pug", {message:err.message});
-    console.log(err.message);
+    console.log(err.stack);
     next();
 });
 

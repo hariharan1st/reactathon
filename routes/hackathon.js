@@ -1,6 +1,7 @@
 var express = require("express");
 var hackathonRouter = express.Router();
 var hackathonModel = require("../models/hackathon.js");
+var util = require("../util/util.js");
 
 hackathonRouter.get("/hackathon-list", function(req,res,next){
         hackathonModel.find({}, function(err, hackathonArray){
@@ -14,7 +15,7 @@ hackathonRouter.get("/hackathon-list", function(req,res,next){
         });
 });
 hackathonRouter.get("/create", function(req,res,next){
-        res.render("hackathon-create.pug", { message : req.session.message});
+        res.render("hackathon-create.pug", { message : util.popSessionValue(req, "message")});
 });
 hackathonRouter.post("/create", function(req,res,next){
         if(!req.body.name || !req.body.last_date || !req.body.max_team_size || !req.body.organizer){

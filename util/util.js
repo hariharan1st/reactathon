@@ -7,6 +7,11 @@ util = {
         else{
             next();
         }
+    },
+    popSessionValue : function(req,key){
+        var temp = req.session[key];
+        req.session[key] = null;
+        return temp;
     }
 };
 
