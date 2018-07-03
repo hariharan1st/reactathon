@@ -1,4 +1,4 @@
-authenticationutil = {
+util = {
     checkSignIn : function(req,res,next){
         if(req.session.user == null){
             var err = new Error("User validation Failed");
@@ -10,4 +10,4 @@ authenticationutil = {
     }
 };
 
-module.exports = authenticationutil;
+module.exports = util;

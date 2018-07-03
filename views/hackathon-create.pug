@@ -1,0 +1,31 @@
+html
+    head
+        title Hackathon - Create
+    body
+        if message != null
+            div #{message}
+        form(action="/hackathon/create", method="post")
+            
+            label(for="name") Name:
+            input(type="text", name="name")
+            br
+            label(for="summary") Summary:
+            input(type="text", name="summary")
+            br
+            label(for="last_date") Last Date:
+            input(type="text", name="last_date")
+            br
+            label(for="tech_stack") Tech Stack:
+            input(type="text", name="tech_stack")
+            br
+            label(for="organizer") Organizer:
+            input(type="text", name="organizer")
+            br
+            label(for="min_team_size") min Team Size:
+            input(type="text", name="min_team_size")
+            br
+            label(for="max_team_size") max Team Size:
+            input(type="text", name="max_team_size")
+            br
+            button(type="submit") Create
+            button(type="reset") Reset

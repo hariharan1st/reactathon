@@ -6,6 +6,7 @@ var upload = multer();
 var app = express();
 var session = require("express-session");
 
+var util = require("./util/util.js");
 var loginRouter = require("./routes/login.js");
 var hackathonRouter = require("./routes/hackathon.js");
 
@@ -33,7 +34,7 @@ app.use(cookieParser());
 app.use(session({ secret:"secret test" }));
 
 app.use("/login", loginRouter);
-app.use("/hackathon", hackathonRouter);
+app.use("/hackathon", util.checkSignIn, hackathonRouter);
 
 app.get("/", function(req,res, next){
     res.render("index.pug", {message:req.message});

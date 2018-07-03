@@ -19,14 +19,16 @@ loginRouter.post("/", function(req,res, next){
 });
 
 loginRouter.get("/register", function(req,res,next){
-    res.render("register.pug");
+    res.render("register.pug", { message:req.session.message });
 });
 
 loginRouter.post("/register", function(req,res,next){
     if(!req.body.username || !req.body.password){
-        req.message = "Please enter user name and password to register"
+        req.session.message = "Please enter user name and password to register"
+        res.redirect("/login/register");
     }
     else{
+
         var newUser = new userModel({
             username:req.body.username,
             password:req.body.password

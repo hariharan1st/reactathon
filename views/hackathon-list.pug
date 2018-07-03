@@ -3,3 +3,23 @@ html
         title   HACKATHON LIST
     body
         div #{message}
+        table(border="1")
+            tr
+                th Name
+                th Summary
+                th Tech Stack Used
+                th Organizer
+                th Min Team Size
+                th Max Team Size
+                th Last Date
+            each val in hackathonList.length ? hackathonList : ['There are no events']
+                tr
+                    td #{val.name}
+                    td #{val.summary}
+                    td #{val.tech_stack}
+                    td #{val.organizer}
+                    td #{val.min_team_size}
+                    td #{val.max_team_size}
+                    td #{val.last_date}   
+        a(href="/hackathon/create")
+            button(name="create") Create new hackathon
